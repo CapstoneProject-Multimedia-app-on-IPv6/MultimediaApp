@@ -118,10 +118,7 @@ const authRoutes = require('./routes/api/auth');
 const musicRoutes = require('./routes/api/musicRoutes');
 const {check, validationResult} = require('express-validator');
 // database connection
-mongoose.connect(mongoURL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(mongoURL)
 .then(() => {
   console.log('Connected to MongoDB successfully');
 })

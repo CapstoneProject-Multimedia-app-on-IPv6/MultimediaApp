@@ -6,10 +6,7 @@ const mongoURI = 'mongodb+srv://giahuy:user123@cluster0.zlwag.mongodb.net/'; // 
 // Kết nối đến MongoDB
 const connectDB = async () => {
   try {
-    await mongoose.connect(mongoURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    await mongoose.connect(mongoURI);
     console.log('MongoDB connected successfully');
   } catch (err) {
     console.error(err.message);
