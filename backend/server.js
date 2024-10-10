@@ -17,7 +17,7 @@ app.use(express.json());
 app.use('/music', musicRoutes);
 app.use('/auth', authRoutes);
 
-// Khởi động server
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+const host = '::'; // Lắng nghe trên tất cả giao diện IPv6
+app.listen(port, host, () => {
+  console.log(`Server is running on IPv6`);
 });
