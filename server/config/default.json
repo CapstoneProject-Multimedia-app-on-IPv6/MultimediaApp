@@ -1,5 +1,0 @@
-{
-    "jwtSecret": "user123",
-    "mongoURL": "mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/Appdb"
-  }
-  
