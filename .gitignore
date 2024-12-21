@@ -1,0 +1,35 @@
+# Bỏ qua các file Terraform tự động tạo
+*.tfstate
+*.tfstate.backup
+.terraform/
+
+# Bỏ qua file lock của Terraform
+.terraform.lock.hcl
+
+# Bỏ qua các file tạm thời của hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Bỏ qua các file log hoặc tạm thời
+*.log
+*.tmp
+
+# Bỏ qua các file hoặc thư mục node_modules nếu có frontend (React, Angular, ...)
+node_modules/
+dist/
+
+# Bỏ qua các file build lớn hoặc nhị phân
+*.exe
+*.zip
+*.tar
+*.gz
+
+# Bỏ qua các file IDE/Editor tạm thời
+.idea/
+.vscode/
+*.swp
+
+# Bỏ qua các file từ backend hoặc frontend (nếu cần)
+.env
+.env.local
+build/
