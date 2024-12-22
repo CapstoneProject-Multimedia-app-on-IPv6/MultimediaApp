@@ -56,6 +56,50 @@ resource "google_compute_instance" "app_instance" {
   }
 
   metadata_startup_script = <<-EOT
+  #!/bin/bash
+  sudo su
+  # Cập nhật hệ thống
+  apt update -y
+  apt upgrade -y
+  apt install -y nodejs npm git nginx curl
+
+  # Gỡ cài đặt Node.js cũ (nếu có)
+  apt remove -y nodejs
+
+  # Cài đặt Node.js phiên bản 18
+  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+  apt install -y nodejs
+
+  # Tải resource
+  cd /home/ubuntu
+  git clone https://github.com/HuyQuahM/Test.git
+  cd /home/ubuntu/Test/backend
+  npm install
+  screen -dmS app npm start
+
+  # Cấu hình Nginx
+  cat << 'NGINX' > /etc/nginx/sites-available/music-app
+  server {
+    listen [::]:80;
+    server_name _;
+
+    location / {
+        proxy_pass http://[::]:5000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+  }
+  NGINX
+
+  # Kích hoạt Nginx
+  ln -s /etc/nginx/sites-available/music-app /etc/nginx/sites-enabled/
+  rm /etc/nginx/sites-enabled/default
+  systemctl enable nginx
+  systemctl restart nginx
+
   EOT
 }
 output "ipv6_address" {
