@@ -3,15 +3,15 @@ provider "google" {
   region  = "us-central1"          
 }
 
-resource "google_compute_network" "music_app_vpc" {
+resource "google_compute_network" "app_vpc" {
   name = "music-app-vpc"
   auto_create_subnetworks = false
 }
 
-resource "google_compute_subnetwork" "ipv6_subnet" {
+resource "google_compute_subnetwork" "app_subnet" {
   name               = "ipv6-subnet"
   region             = "us-central1"
-  network            = google_compute_network.music_app_vpc.id
+  network            = google_compute_network.app_vpc.id
   ip_cidr_range      = "10.0.0.0/16"    # Dải IPv4 CIDR
   stack_type         = "IPV4_IPV6"      # Hỗ trợ IPv4 và IPv6
   ipv6_access_type   = "EXTERNAL"       # IPv6 công khai
@@ -20,7 +20,7 @@ resource "google_compute_subnetwork" "ipv6_subnet" {
 
 resource "google_compute_firewall" "allow_ipv6" {
   name    = "allow-ipv6"
-  network = google_compute_network.music_app_vpc.name
+  network = google_compute_network.app_vpc.name
 
   allow {
     protocol = "tcp"
@@ -31,8 +31,8 @@ resource "google_compute_firewall" "allow_ipv6" {
   source_ranges = ["::/0"] # Cho phép tất cả IPv6
 }
 
-resource "google_compute_instance" "music_app_instance" {
-  name         = "music-app-backend"
+resource "google_compute_instance" "app_instance" {
+  name         = "app-backend"
   machine_type = "e2-medium"
   zone         = "us-central1-a"
 
@@ -43,8 +43,8 @@ resource "google_compute_instance" "music_app_instance" {
   }
 
   network_interface {
-    network    = google_compute_network.music_app_vpc.id
-    subnetwork = google_compute_subnetwork.ipv6_subnet.id
+    network    = google_compute_network.app_vpc.id
+    subnetwork = google_compute_subnetwork.app_subnet.id
     stack_type = "IPV4_IPV6"
 
     access_config {
@@ -59,5 +59,6 @@ resource "google_compute_instance" "music_app_instance" {
   EOT
 }
 output "ipv6_address" {
-  value = length(google_compute_instance.music_app_instance.network_interface[0].ipv6_access_config) > 0 ? google_compute_instance.music_app_instance.network_interface[0].ipv6_access_config[0].external_ipv6 : "No IPv6 assigned"
+  value = length(google_compute_instance.app_instance.network_interface[0].ipv6_access_config) > 0 ? google_compute_instance.app_instance.network_interface[0].ipv6_access_config[0].external_ipv6 : "No IPv6 assigned"
 }
+
