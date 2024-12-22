@@ -61,4 +61,3 @@ resource "google_compute_instance" "music_app_instance" {
 output "ipv6_address" {
   value = length(google_compute_instance.music_app_instance.network_interface[0].ipv6_access_config) > 0 ? google_compute_instance.music_app_instance.network_interface[0].ipv6_access_config[0].external_ipv6 : "No IPv6 assigned"
 }
-
