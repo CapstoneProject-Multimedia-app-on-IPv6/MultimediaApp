@@ -19,17 +19,6 @@ resource "aws_internet_gateway" "igw" {
 resource "aws_eip" "my_nat_eip" {
   domain = "vpc" # Thay thế vpc = true bằng domain = "vpc"
 }
-
-# Tạo NAT Gateway
-resource "aws_nat_gateway" "my_nat_gateway" {
-  allocation_id = aws_eip.my_nat_eip.id
-  subnet_id     = aws_subnet.public_subnet.id
-
-  tags = {
-    Name = "my_nat_gateway"
-  }
-}
-
 # Tạo Public Subnet
 resource "aws_subnet" "public_subnet" {
   vpc_id            = aws_vpc.main_vpc.id
@@ -42,6 +31,17 @@ resource "aws_subnet" "public_subnet" {
     Name = "public_subnet"
   }
 }
+
+# Tạo NAT Gateway
+resource "aws_nat_gateway" "my_nat_gateway" {
+  allocation_id = aws_eip.my_nat_eip.id
+  subnet_id     = aws_subnet.public_subnet.id
+
+  tags = {
+    Name = "my_nat_gateway"
+  }
+}
+
 
 # Tạo Private Subnet
 resource "aws_subnet" "private_subnet" {
