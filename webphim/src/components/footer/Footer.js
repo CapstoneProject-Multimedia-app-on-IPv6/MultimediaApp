@@ -18,14 +18,14 @@ function Footer({ className }) {
                         <li className={cs('item')}>
                             <a href="tel:phonenumber" className={cs('item-link')}>
                                 <FontAwesomeIcon className={cs('icon')} icon={faPhone} />
-                                Phone Number : 0337883917
+                                Phone Number : 0981273581
                             </a>
                         </li>
 
                         <li className={cs('item')}>
                             <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" className={cs('item-link')}>
                                 <FontAwesomeIcon className={cs('icon')} icon={faEnvelope} />
-                                Email : thanhtam01224@gmail.com
+                                Email : 21522143@gm.uit.edu.vn
                             </a>
                         </li>
 
@@ -35,7 +35,7 @@ function Footer({ className }) {
                                 className={cs('item-link')}
                             >
                                 <FontAwesomeIcon className={cs('icon')} icon={faHome} />
-                                Address : To Tang Nhon Phu B-Quan 9-Thu Duc
+                                Address : Thủ đức
                             </a>
                         </li>
                     </ul>
@@ -45,7 +45,7 @@ function Footer({ className }) {
                     <h4 className={cs('heading')}>Follow Me</h4>
                     <ul className={cs('list')}>
                         <li className={cs('item')}>
-                            <a href="https://www.facebook.com/ThankTam2208" target="_blank" className={cs('item-link')}>
+                            <a href="https://www.facebook.com/huy042003" target="_blank" className={cs('item-link')}>
                                 <FontAwesomeIcon className={cs('icon')} icon={faFacebook} />
                                 Facebook
                             </a>
