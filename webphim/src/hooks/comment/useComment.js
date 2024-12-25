@@ -7,7 +7,7 @@ function useComment(movieId) {
     useEffect(() => {
         const getComment = async () => {
             try {
-                const response = await fetch(`/Api/api/comment/getComment/${movieId}`);
+                const response = await fetch(`/api/api/comment/getComment/${movieId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setListComment(data.datas);
@@ -21,7 +21,7 @@ function useComment(movieId) {
 
     const createComment = async (comment) => {
         try {
-            const response = await fetch('/Api/api/comment/createComment', {
+            const response = await fetch('/api/api/comment/createComment', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

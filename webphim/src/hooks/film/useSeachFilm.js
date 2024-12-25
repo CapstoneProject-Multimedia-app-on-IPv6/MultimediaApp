@@ -4,7 +4,7 @@ const useSearchFilm = (name) => {
     const [searchResult, setSearchResult] = useState([])
     useEffect(() => {
         const searchFilms = async () => {
-            const response = await fetch('/Api/api/films/search-film', {
+            const response = await fetch('/api/api/films/search-film', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ const useCreateGenres = () => {
     const createGenre = async (name) => {
         try {
             setLoading(true);
-            const response = await fetch('/Api/api/genres/', {
+            const response = await fetch('/api/api/genres/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

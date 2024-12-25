@@ -1,7 +1,7 @@
 const useDeleteGenre = () => {
     const deleteGenre = async (genreId) => {
         try {
-            const response = await fetch(`/Api/api/genres/${genreId}`, {
+            const response = await fetch(`/api/api/genres/${genreId}`, {
                 method: 'DELETE',
             });
             const data = await response.json();
