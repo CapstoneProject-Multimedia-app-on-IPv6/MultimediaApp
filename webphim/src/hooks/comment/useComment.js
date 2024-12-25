@@ -23,6 +23,7 @@ function useComment(movieId) {
         try {
             const response = await fetch('/api/api/comment/createComment', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },

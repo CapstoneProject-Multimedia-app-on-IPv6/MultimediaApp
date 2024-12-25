@@ -6,6 +6,7 @@ function useCreateEpisode() {
             formData.append('video', file);
             const response = await fetch(`/api/api/episode/${episode.movieId}`, {
                 method: 'POST',
+                credentials: 'include',
                 body: formData,
             });
             const data = await response.json();

@@ -43,6 +43,7 @@ export const createEpisodeForMovie = async (req, res) => {
 
       const response = await fetch("http://35.240.202.89:80/db//upload", {
         method: "POST",
+        credentials: 'include',
         body: formData,
       });
       const data = await response.json();

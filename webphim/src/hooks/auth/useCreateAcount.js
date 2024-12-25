@@ -7,6 +7,7 @@ const useCreateAccount = () => {
         try {
             const response = await fetch('/api/api/auth/register', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },

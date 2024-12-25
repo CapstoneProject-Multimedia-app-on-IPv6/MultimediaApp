@@ -8,6 +8,7 @@ const useLogout = () => {
         try {
             const response = await fetch('/api/api/auth/logout', {
                 method: 'POST',
+                credentials: 'include',
                 headers: {
                     'Content-Type': 'application/json',
                 },
