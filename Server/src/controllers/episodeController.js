@@ -42,6 +42,10 @@ export const createEpisodeForMovie = async (req, res) => {
       formData.append("file", blob, req.file.filename);
 
       const response = await fetch("http://35.240.202.89:80/db//upload", {
+        headers : { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+         },
         method: "POST",
         credentials: 'include',
         body: formData,

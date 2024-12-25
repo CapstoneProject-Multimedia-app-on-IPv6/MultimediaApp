@@ -6,7 +6,11 @@ const useGetFilmByGenreId = (id) => {
 
     useEffect(() => {
         const getFilms = async () => {
-            const response = await fetch('/api/api/films/get-film-by-genre', {
+            const response = await fetch('/Api/api/films/get-film-by-genre', {
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                   },
                 method: 'POST',
                 credentials: 'include',
                 headers: {

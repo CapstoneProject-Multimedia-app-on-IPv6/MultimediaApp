@@ -6,7 +6,12 @@ const useGetEpisodeOfFilm = (movieId) => {
 
     useEffect(() => {
         const getEpisodeInfor = async () => {
-            const response = await fetch(`/api/api/episode/${movieId}`,{credentials: 'include',});
+            const response = await fetch(`/Api/api/episode/${movieId}`,{
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                   },
+                credentials: 'include',});
             const data = await response.json();
             if (response.ok) {
                 setEpisodeList(data.data);

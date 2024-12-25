@@ -5,7 +5,12 @@ const useGetFilm = (id) => {
 
     useEffect(() => {
         const getFilmInfor = async () => {
-            const response = await fetch(`/api/api/films/get-detail/${id}`,{credentials: 'include',});
+            const response = await fetch(`/Api/api/films/get-detail/${id}`,{
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                   },
+                credentials: 'include',});
             const data = await response.json();
             if (response.ok) {
                 setFilm(data.datas);

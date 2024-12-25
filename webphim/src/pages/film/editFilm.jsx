@@ -32,7 +32,12 @@ function EditFilmPage() {
 
     useEffect(() => {
         const getGenreList = async () => {
-            const response = await fetch('/api/api/genres/',{credentials: 'include',});
+            const response = await fetch('/Api/api/genres/',{
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                   },
+                credentials: 'include',});
             const data = await response.json();
             if (response.ok) {
                 setGenresList(data.datas);
@@ -42,7 +47,12 @@ function EditFilmPage() {
         };
 
         const getFilm = async () => {
-            const response = await fetch(`/api/api/films/get/${id}`,{credentials: 'include',});
+            const response = await fetch(`/Api/api/films/get/${id}`,{
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                   },
+                credentials: 'include',});
             const data = await response.json();
             if (response.ok) {
                 setFilmInfor(data.datas);

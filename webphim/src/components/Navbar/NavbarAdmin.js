@@ -12,7 +12,13 @@ function NavbarAdmin(props) {
     const [genresList, setGenresList] = useState([]);
     useEffect(() => {
         const getGenreList = async () => {
-            const response = await fetch('/api/api/genres/',{credentials: 'include',});
+            const response = await fetch('/Api/api/genres/',{
+                credentials: 'include',
+                headers : { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                   }
+            });
             const data = await response.json();
             if (response.ok) {
                 setGenresList(data.datas);

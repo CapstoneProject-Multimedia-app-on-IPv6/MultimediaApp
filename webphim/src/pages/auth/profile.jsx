@@ -43,7 +43,12 @@ function Profile() {
     useEffect(() => {
         const fetchUserDetail = async () => {
             try {
-                const response = await fetch(`/api/api/user/user-by-id/${id}`,{credentials: 'include',});
+                const response = await fetch(`/Api/api/user/user-by-id/${id}`,{
+                    headers : { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                       },
+                    credentials: 'include',});
                 const dataUser = await response.json();
                 if (dataUser.success) {
                     setUser(dataUser.data);

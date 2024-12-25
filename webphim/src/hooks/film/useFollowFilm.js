@@ -1,7 +1,11 @@
 import toast from 'react-hot-toast';
 function useFollowFilm() {
     const FollowFilm = async (id) => {
-        const response = await fetch('/api/api/films/follow', {
+        const response = await fetch('/Api/api/films/follow', {
+            headers : { 
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+               },
             method: 'POST',
             credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
