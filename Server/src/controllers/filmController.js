@@ -108,7 +108,7 @@ export const create = async (req, res) => {
     const formData = new FormData();
     formData.append("file", blob, req.file.filename);
 
-    const response = await fetch("http://localhost:8090/upload", {
+    const response = await fetch("http://35.198.240.1:8090/upload", {
       method: "POST",
       body: formData,
     });
@@ -157,7 +157,7 @@ export const update = async (req, res) => {
       formData.append("file", blob, req.file.filename);
 
       // Tải tệp mới lên
-      const response = await fetch("http://localhost:8090/upload", {
+      const response = await fetch("http://35.198.240.1:8090/upload", {
         method: "POST",
         body: formData,
       });
