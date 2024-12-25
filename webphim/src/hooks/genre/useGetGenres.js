@@ -5,7 +5,7 @@ const useGetGenres = () => {
 
     useEffect(() => {
         const getGenres = async () => {
-            const response = await fetch('/api/api/genres/');
+            const response = await fetch('/api/api/genres/',{credentials: 'include',});
             const data = await response.json();
             if (!response.ok) {
                 console.log(data.error);

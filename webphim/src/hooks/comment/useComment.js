@@ -7,7 +7,7 @@ function useComment(movieId) {
     useEffect(() => {
         const getComment = async () => {
             try {
-                const response = await fetch(`/api/api/comment/getComment/${movieId}`);
+                const response = await fetch(`/api/api/comment/getComment/${movieId}`,{credentials: 'include',});
                 const data = await response.json();
                 if (response.ok) {
                     setListComment(data.datas);

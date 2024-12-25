@@ -3,6 +3,7 @@ const useDeleteGenre = () => {
         try {
             const response = await fetch(`/api/api/genres/${genreId}`, {
                 method: 'DELETE',
+                credentials: 'include',
             });
             const data = await response.json();
             if (response.ok) {
