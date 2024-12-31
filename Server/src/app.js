@@ -15,7 +15,7 @@ app.use(cookieParser());
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 console.log("thu muc hien tai: ", __dirname);
 app.use(express.static(path.join(__dirname, "static/build").replace("src", "")));
-
+console.log("Dirbuild: ",path.join(__dirname, "static/build").replace("src", "") );
 app.use("/api", router);
 mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim").then(() => {
   console.log("Connect to db success");
