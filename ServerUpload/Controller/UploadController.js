@@ -3,7 +3,7 @@ const uploadFile = (req, res) => {
   try {
     if (file) {
       const filePath =
-        "http://35.240.202.89:80/db/" +
+        "http://localhost:8090/" +
         req.file.path.substring(req.file.path.indexOf("\\upload"));
       return res.status(201).json(filePath);
     } else {
