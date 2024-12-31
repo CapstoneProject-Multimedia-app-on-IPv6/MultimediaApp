@@ -13,6 +13,7 @@ app.use(cors());
 app.use(cookieParser());
 // Lấy đường dẫn thư mục hiện tại
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+console.log("thu muc hien tai: ", __dirname);
 app.use(express.static(path.join(__dirname, "static/build").replace("src", "")));
 
 app.use("/api", router);
