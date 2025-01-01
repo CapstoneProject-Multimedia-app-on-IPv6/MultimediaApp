@@ -1,6 +1,6 @@
 const useUpdateGenre = () => {
     const updateGenre = async (genre, genreId) => {
-        const response = await fetch(`/Api/api/genres/${genreId}`, {
+        const response = await fetch(`/api/genres/${genreId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

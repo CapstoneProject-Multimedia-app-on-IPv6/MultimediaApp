@@ -29,7 +29,7 @@ function CreateFilmPage() {
 
     useEffect(() => {
         const getGenreList = async () => {
-            const response = await fetch('/Api/api/genres/');
+            const response = await fetch('/api/genres/');
             const data = await response.json();
             if (response.ok) {
                 setGenresList(data.datas);
