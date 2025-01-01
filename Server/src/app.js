@@ -9,6 +9,15 @@ import { startMetricsServer } from "../until/metrics.js";
 const app = express();
 
 app.use(express.json());
+
+//handle csp refused to create blob worker
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self' blob:; script-src 'self' blob:;"
+  );
+  next();
+});
 app.use(cors());
 app.use(cookieParser());
 // Lấy đường dẫn thư mục hiện tại
