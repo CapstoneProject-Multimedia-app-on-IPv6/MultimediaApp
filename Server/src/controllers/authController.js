@@ -25,7 +25,7 @@ export const register = async (req, res) => {
 
     const user = await User.create({
       ...req.body,
-      avatar: "http://localhost:8081/upload/avatar/avatar.png",
+      avatar: "http://localhost:8090/upload/avatar/avatar.png",
       password: hashNewPassword,
     });
     user.password = undefined;

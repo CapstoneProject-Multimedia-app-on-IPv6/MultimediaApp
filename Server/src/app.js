@@ -16,10 +16,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "static").replace("src", "")));
 
 app.use("/api", router);
-mongoose.connect("mongodb+srv://giahuy:user123@cluster0.zlwag.mongodb.net/novelweb_db").then(() => {
+mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim").then(() => {
   console.log("Connect to db success");
 });
-app.listen(8080, () => {
-  console.log("Server is running 8080 port");
+app.listen(8089, () => {
+  console.log("Server is running 8089 port");
 });
 //export const viteNodeApp = app;

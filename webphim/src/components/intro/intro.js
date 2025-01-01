@@ -5,7 +5,7 @@ import { useState } from 'react';
 import videoDemo from '../../assets/images/demo1.mp4';
 import { Link } from 'react-router-dom';
 function Intro() {
-    const [isMuted, setIsMute] = useState(false);
+    const [isMuted, setIsMute] = useState(true);
 
 
     return (
