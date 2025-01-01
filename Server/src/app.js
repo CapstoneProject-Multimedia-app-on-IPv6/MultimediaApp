@@ -13,7 +13,9 @@ app.use(cors());
 app.use(cookieParser());
 // Lấy đường dẫn thư mục hiện tại
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-app.use(express.static(path.join(__dirname, "static").replace("src", "")));
+// app.use(express.static(path.join(__dirname, "static").replace("src", "")));
+app.use(express.static(path.resolve(__dirname, "../build")));
+console.log("thu muc hien tai: ", __dirname);
 
 app.use("/api", router);
 mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim").then(() => {
