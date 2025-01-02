@@ -11,20 +11,23 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-    res.setHeader(
-      "Content-Security-Policy",
-      "default-src 'self' blob: https://35.197.156.82:8090 http://localhost:8090; " +
-      "script-src 'self' `https://unpkg.com`; " +
-      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap; " +
-      "img-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
-      "media-src 'self' data: https://35.197.156.82:8090 http://localhost:8090;" +
-      "worker-src 'self' blob:;"
-    );
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self' blob: https://35.197.156.82:8090 http://localhost:8090; " +
+    "script-src 'self' https://unpkg.com; " + 
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
+    "img-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
+    "media-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
+    "worker-src 'self' blob:;" 
+  );
 
-    res.setHeader(
-        "Content-Security-Policy-Report-Only",
-        "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090;"
-    );
+
+//   res.setHeader(
+//     "Content-Security-Policy-Report-Only",
+//     "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090;"
+// );
+
+
   next();
 });
 
