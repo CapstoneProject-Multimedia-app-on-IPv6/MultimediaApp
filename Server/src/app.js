@@ -10,13 +10,13 @@ const app = express();
 
 app.use(express.json());
 
-// app.use((req, res, next) => {
-//   res.setHeader(
-//     "Content-Security-Policy",
-//     "default-src 'self'; img-src 'self' https://35.197.156.82:8090; media-src 'self' https://35.197.156.82:8090;"
-//   );
-//   next();
-// });
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; worker-src 'self' blob:; img-src 'self' https://35.197.156.82:8090; media-src 'self' https://35.197.156.82:8090; script-src 'self' blob:; connect-src 'self';"
+  );
+  next();
+});
 
 
 app.use(cors());
