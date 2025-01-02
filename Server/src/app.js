@@ -11,11 +11,15 @@ const app = express();
 app.use(express.json());
 
 app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self' blob: https://35.197.156.82:8090;"
+      res.setHeader(
+        "Content-Security-Policy",
+        "default-src 'self' blob: https://35.197.156.82:8090;"
+      );
 
-  );
+      res.setHeader(
+        "Content-Security-Policy-Report-Only",
+        "default-src 'self' blob: https://35.197.156.82:8090; report-uri /csp-violations"
+      );
   next();
 });
 
