@@ -19,7 +19,7 @@ app.use((req, res, next) => {
     "img-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
     "media-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
     "worker-src 'self' blob:;" +
-    "font-src 'self' data:;"
+    "font-src 'self' data: https://fonts.gstatic.com;"
   );
 
 
