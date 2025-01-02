@@ -17,7 +17,8 @@ app.use((req, res, next) => {
       "script-src 'self' `https://unpkg.com`; " +
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap; " +
       "img-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
-      "media-src 'self' data: https://35.197.156.82:8090 http://localhost:8090;"
+      "media-src 'self' data: https://35.197.156.82:8090 http://localhost:8090;" +
+      "worker-src 'self' blob:;"
     );
 
     res.setHeader(
