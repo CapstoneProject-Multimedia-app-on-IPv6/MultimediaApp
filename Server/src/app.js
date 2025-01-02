@@ -13,7 +13,7 @@ app.use(express.json());
 app.use((req, res, next) => {
       res.setHeader(
         "Content-Security-Policy",
-        "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090;"
+        "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090; style-src 'self' 'unsafe-inline';"
       );
 
       res.setHeader(
