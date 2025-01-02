@@ -41,7 +41,7 @@ export const createEpisodeForMovie = async (req, res) => {
       const formData = new FormData();
       formData.append("file", blob, req.file.filename);
 
-      const response = await fetch("http://localhost:8090/upload", {
+      const response = await fetch("http://35.197.156.82:8090/upload", {
         method: "POST",
         body: formData,
       });
