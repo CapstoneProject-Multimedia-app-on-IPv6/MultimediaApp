@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 const app = express();
 app.use(cors({
   origin: "*",
-  credentials: true,
+  // credentials: true,
 }));
 
 app.use((req, res, next) => {
