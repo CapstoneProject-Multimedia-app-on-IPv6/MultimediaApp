@@ -6,7 +6,7 @@ const useCreateGenres = () => {
     const createGenre = async (name) => {
         try {
             setLoading(true);
-            const response = await fetch('/api/genres/', {
+            const response = await fetch('/Api/api/genres/', {
                 method: 'POST',
                 credentials: "include",
                 headers: {

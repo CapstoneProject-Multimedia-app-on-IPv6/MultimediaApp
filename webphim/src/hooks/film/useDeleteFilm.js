@@ -1,7 +1,7 @@
 const useDeleteFilm = () => {
     const deleteFilm = async (movieId) => {
         try {
-            const response = await fetch(`/api/films/${movieId}`, {
+            const response = await fetch(`/Api/api/films/${movieId}`, {
                 method: 'DELETE',
                 credentials: "include",
             });

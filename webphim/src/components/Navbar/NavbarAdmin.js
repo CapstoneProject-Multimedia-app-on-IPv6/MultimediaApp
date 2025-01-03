@@ -12,7 +12,7 @@ function NavbarAdmin(props) {
     const [genresList, setGenresList] = useState([]);
     useEffect(() => {
         const getGenreList = async () => {
-            const response = await fetch('/api/genres/',{
+            const response = await fetch('/Api/api/genres/',{
                 credentials: "include",
             });
             const data = await response.json();

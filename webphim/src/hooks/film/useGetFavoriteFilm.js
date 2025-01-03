@@ -5,7 +5,7 @@ const useGetFavoriteFilm = () => {
 
     useEffect(() => {
         const getListFilm = async () => {
-            const response = await fetch('/api/films/list-favorite',{
+            const response = await fetch('/Api/api/films/list-favorite',{
                 credentials: "include",
             });
             const data = await response.json();

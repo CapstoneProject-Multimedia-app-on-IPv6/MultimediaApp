@@ -4,7 +4,7 @@ function useRatingFilm(movieId) {
     const [rate, setRate] = useState(0);
     useEffect(() => {
         const getRate = async () => {
-            const response = await fetch('/api/films/getRate', {
+            const response = await fetch('/Api/api/films/getRate', {
                 method: 'POST',
                 credentials: "include",
                 headers: { 'Content-Type': 'application/json' },
@@ -21,7 +21,7 @@ function useRatingFilm(movieId) {
     }, []);
 
     const RatingFilm = async (movieId, rate) => {
-        const response = await fetch('/api/films/rating', {
+        const response = await fetch('/Api/api/films/rating', {
             method: 'POST',
             credentials: "include",
             headers: { 'Content-Type': 'application/json' },

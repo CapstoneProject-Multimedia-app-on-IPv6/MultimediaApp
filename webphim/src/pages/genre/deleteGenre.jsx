@@ -19,7 +19,7 @@ const DeleteGenre = () => {
     useEffect(() => {
         const getGenre = async () => {
             try {
-                const response = await fetch(`/api/genres/${id}`,{
+                const response = await fetch(`/Api/api/genres/${id}`,{
                     credentials: "include",
                 });
                 const data = await response.json();
