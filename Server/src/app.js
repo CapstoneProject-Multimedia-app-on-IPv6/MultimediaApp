@@ -24,10 +24,6 @@ app.use((req, res, next) => {
   next();
 
 });
-//   res.setHeader(
-//     "Content-Security-Policy-Report-Only",
-//     "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090;"
-// );
 
 
 app.use(cors({
@@ -36,14 +32,12 @@ app.use(cors({
 }));
 
 app.use(cookieParser());
-// Lấy đường dẫn thư mục hiện tại
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-// app.use(express.static(path.join(__dirname, "static").replace("src", "")));
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(
   express.static(path.resolve(__dirname, "../build"), {
     setHeaders: (res, path) => {
-      res.removeHeader("Content-Security-Policy"); // Remove CSP if it's set
+      res.removeHeader("Content-Security-Policy");
     },
   })
 );
@@ -62,4 +56,15 @@ mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim")
 app.listen(8089, () => {
   console.log("Server is running 8089 port");
 });
-//export const viteNodeApp = app;
+
+
+
+
+
+
+
+
+//   res.setHeader(
+//     "Content-Security-Policy-Report-Only",
+//     "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090;"
+// );
