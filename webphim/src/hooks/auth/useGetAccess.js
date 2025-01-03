@@ -5,7 +5,7 @@ const useGetAccess = () => {
     const { setAllowAccess } = useContext(UserContext);
     useEffect(() => {
         const getAccess = async () => {
-            const response = await fetch('/api/auth/getAccess/', {
+            const response = await fetch('auth/getAccess/', {
                 method: 'POST',
                 credentials: "include",
                 headers: { 'Content-Type': 'application/json' },
