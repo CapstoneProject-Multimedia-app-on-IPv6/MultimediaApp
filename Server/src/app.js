@@ -22,6 +22,7 @@ app.use((req, res, next) => {
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
   next();
+  
 });
 //   res.setHeader(
 //     "Content-Security-Policy-Report-Only",
