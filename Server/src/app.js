@@ -18,19 +18,15 @@ app.use((req, res, next) => {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
     "img-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
     "media-src 'self' data: https://35.197.156.82:8090 http://localhost:8090; " +
-    "worker-src 'self' blob:;" +
+    "worker-src 'self' blob: *;" +
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
-
-
+  next();
+});
 //   res.setHeader(
 //     "Content-Security-Policy-Report-Only",
 //     "default-src 'self' blob: https://35.197.156.82:8090; img-src 'self' data: https://35.197.156.82:8090;"
 // );
-
-
-  next();
-});
 
 
 app.use(cors());
