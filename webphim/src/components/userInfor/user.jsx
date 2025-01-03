@@ -20,7 +20,11 @@ function UserDrop() {
         const fetchUserDetail = async () => {
             try {
                 const response = await fetch(`/api/user/user-by-id/${id}`,{
-                    credentials: "include",
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
                 });
                 const dataUser = await response.json();
                 if (dataUser.success) {
