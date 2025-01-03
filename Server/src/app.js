@@ -34,7 +34,15 @@ app.use(cookieParser());
 // Lấy đường dẫn thư mục hiện tại
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // app.use(express.static(path.join(__dirname, "static").replace("src", "")));
-app.use(express.static(path.resolve(__dirname, "../build")));
+
+app.use(
+  express.static(path.resolve(__dirname, "../build"), {
+    setHeaders: (res, path) => {
+      res.removeHeader("Content-Security-Policy"); // Remove CSP if it's set
+    },
+  })
+);
+
 console.log("thu muc hien tai: ", __dirname);
 
 app.use("/api", router);
