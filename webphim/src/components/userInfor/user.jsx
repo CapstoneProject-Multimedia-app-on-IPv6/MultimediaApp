@@ -19,7 +19,9 @@ function UserDrop() {
     useEffect(() => {
         const fetchUserDetail = async () => {
             try {
-                const response = await fetch(`/api/user/user-by-id/${id}`);
+                const response = await fetch(`/api/user/user-by-id/${id}`,{
+                    credentials: "include",
+                });
                 const dataUser = await response.json();
                 if (dataUser.success) {
                     setUserSave(dataUser.data);

@@ -58,6 +58,7 @@ export const updateUser = async (req, res) => {
 
       const response = await fetch("http://35.197.156.82:8090/upload", {
         method: "POST",
+        credentials: "include",
         body: formData,
       });
 

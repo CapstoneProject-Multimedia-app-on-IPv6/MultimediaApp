@@ -29,7 +29,11 @@ app.use((req, res, next) => {
 // );
 
 
-app.use(cors());
+app.use(cors({
+	origin: "*",
+	credentials: true,
+}));
+
 app.use(cookieParser());
 // Lấy đường dẫn thư mục hiện tại
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

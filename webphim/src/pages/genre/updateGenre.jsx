@@ -19,7 +19,9 @@ function UpdateGenre() {
     useEffect(() => {
         const getGenre = async () => {
             try {
-                const response = await fetch(`/api/genres/${id}`);
+                const response = await fetch(`/api/genres/${id}`,{
+                    credentials: "include",
+                });
                 const data = await response.json();
                 if (response.ok) {
                     setGenreInfo(data.datas);

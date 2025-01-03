@@ -110,6 +110,7 @@ export const create = async (req, res) => {
 
     const response = await fetch("http://35.197.156.82:8090/upload", {
       method: "POST",
+      credentials: "include",
       body: formData,
     });
     const data = await response.json();
@@ -159,6 +160,7 @@ export const update = async (req, res) => {
       // Tải tệp mới lên
       const response = await fetch("http://35.197.156.82:8090/upload", {
         method: "POST",
+        credentials: "include",
         body: formData,
       });
 
