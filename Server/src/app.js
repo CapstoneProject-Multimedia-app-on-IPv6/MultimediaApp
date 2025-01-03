@@ -32,7 +32,7 @@ app.use(cors({
 
 app.use(cookieParser());
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
+app.use(express.static(path.join(__dirname, "../static")));
 console.log("thu muc hien tai: ", __dirname);
 
 app.use("/api", router);

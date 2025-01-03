@@ -26,7 +26,7 @@ app.use((req, res, next) => {
 });
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
+app.use(express.static(path.join(__dirname, "static")));
 app.post("/upload", upload.single("file"), uploadController);
 
 app.listen(8090, () => {
