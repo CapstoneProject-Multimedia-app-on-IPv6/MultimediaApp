@@ -22,7 +22,7 @@ app.use((req, res, next) => {
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
   next();
-  
+
 });
 //   res.setHeader(
 //     "Content-Security-Policy-Report-Only",
@@ -51,6 +51,9 @@ app.use(
 console.log("thu muc hien tai: ", __dirname);
 
 app.use("/api", router);
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../build/index.html"));
+});
 mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim")
         .then(() => {
           console.log("Connect to db success");
