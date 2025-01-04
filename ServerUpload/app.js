@@ -14,11 +14,11 @@ app.use(cors({
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self' blob: https://35.198.228.50:8090 http://localhost:8090; " +
+    "default-src 'self' blob: https://35.240.234.86:8089 http://localhost:8090; " +
     "script-src 'self' https://unpkg.com; " + 
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
-    "img-src 'self' data: https://35.198.228.50:8090 http://localhost:8090; " +
-    "media-src 'self' data: https://35.198.228.50:8090 http://localhost:8090; " +
+    "img-src 'self' data: https://35.240.234.86:8089 http://localhost:8090; " +
+    "media-src 'self' data: https://35.240.234.86:8089 http://localhost:8090; " +
     "worker-src 'self' blob: *;" +
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
