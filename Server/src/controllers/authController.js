@@ -30,7 +30,7 @@ export const register = async (req, res) => {
     });
     user.password = undefined;
 
-    generateTokenAndSetCookie(user._id, res);
+    const token = generateTokenAndSetCookie(user._id, res);
 
     return res.status(200).json({
       message: " Dang ky thanh cong ",

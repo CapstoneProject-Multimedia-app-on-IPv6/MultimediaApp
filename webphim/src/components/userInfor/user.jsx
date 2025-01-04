@@ -22,9 +22,6 @@ function UserDrop() {
                 const response = await fetch(`/api/user/user-by-id/${id}`,{
                     method: 'GET',
                     credentials: 'include',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
                 });
                 const dataUser = await response.json();
                 if (dataUser.success) {
