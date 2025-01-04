@@ -71,7 +71,7 @@ export const updateUser = async (req, res) => {
 
       const existingUser = await User.findById(userId);
       if (existingUser && existingUser.avatar) {
-        const oldFilePath = `/path/to/uploaded/files/${existingUser.avatar.filename}`;
+        const oldFilePath = `/path/to/uploaded/files/${existingUser.avatar.filename}`; //thay the path -> __dirname , ../../../../ServerUpload/uploads/ la ok? chua test
         if (fs.existsSync(oldFilePath)) {
           fs.unlinkSync(oldFilePath);
         }
