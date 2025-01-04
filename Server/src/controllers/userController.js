@@ -56,7 +56,7 @@ export const updateUser = async (req, res) => {
       const formData = new FormData();
       formData.append("file", blob, req.file.filename);
 
-      const response = await fetch("http://35.197.156.82:8090/upload", {
+      const response = await fetch("http://35.198.228.50:8090/upload", {
         method: "POST",
         credentials: "include",
         body: formData,

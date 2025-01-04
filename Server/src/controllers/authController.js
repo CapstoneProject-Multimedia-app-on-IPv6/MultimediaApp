@@ -25,15 +25,17 @@ export const register = async (req, res) => {
 
     const user = await User.create({
       ...req.body,
-      avatar: "http://35.197.156.82:8090/upload/avatar/avatar.png",
+      avatar: "http://35.198.228.50:8090/upload/avatar/avatar.png",
       password: hashNewPassword,
     });
     user.password = undefined;
 
     generateTokenAndSetCookie(user._id, res);
+
     return res.status(200).json({
       message: " Dang ky thanh cong ",
       datas: user,
+      token,
     });
   } catch (error) {
     return res.status(500).json({

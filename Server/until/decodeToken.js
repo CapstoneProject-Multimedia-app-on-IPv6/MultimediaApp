@@ -14,7 +14,7 @@ const protectRoute = async (req, res, next) => {
     }
 
     //decrypt token (token need to decode, secret key sign when create token)
-    const decoded = jwt.verify(token, "GOITOILAGI");
+    const decoded = jwt.verify(token, "eMr8rlzs");
 
     if (!decoded) {
       return res
