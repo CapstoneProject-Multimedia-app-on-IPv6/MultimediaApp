@@ -31,7 +31,6 @@ const protectRoute = async (req, res, next) => {
 
     //set user for request
     req.user = user;
-    console.log("user for request after decoded token: " + user);
     next();
   } catch (err) {
     console.log(err);
