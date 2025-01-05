@@ -17,6 +17,7 @@ function Navbar() {
     useEffect(() => {
         const getGenreList = async () => {
             const response = await fetch('/api/genres/',{
+                method: 'GET',
                 credentials: "include",
             });
             const data = await response.json();
