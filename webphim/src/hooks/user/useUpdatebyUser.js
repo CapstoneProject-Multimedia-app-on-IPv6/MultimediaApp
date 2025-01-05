@@ -4,7 +4,7 @@ const useUpdateUser = (id) => {
           const formData = new FormData();
           formData.append('avatar', userInfor.avatar);
           formData.append('user', JSON.stringify(userInfor));
-          const response = await fetch(`/api/user/update/676ad59658f32858dfdae5bb`, {
+          const response = await fetch(`/api/user/update/${id}`, {
               method: 'POST',
               credentials: "include",
               body: formData,
