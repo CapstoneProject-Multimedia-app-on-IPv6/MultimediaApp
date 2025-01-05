@@ -49,7 +49,6 @@ app.use("/api", router);
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build/index.html"));
 });
-app.post("/upload", upload.single("file"), uploadController);
 mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim")
         .then(() => {
           console.log("Connect to db success");
