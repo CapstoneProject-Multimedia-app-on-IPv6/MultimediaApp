@@ -21,7 +21,9 @@ const useLoginAccount = () => {
                 toast.error(data?.message);
             } else {
                 console.log(data?.message);
+                
                 setUser(data.datas);
+                console.log(data.datas);
                 localStorage.setItem('user', JSON.stringify(data.datas));
             }
         } catch (error) {
