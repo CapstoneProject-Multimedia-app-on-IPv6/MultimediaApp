@@ -7,7 +7,7 @@ function useComment(movieId) {
     useEffect(() => {
         const getComment = async () => {
             try {
-                const response = await fetch(`/api/comment/getComment/${movieId}`,{
+                const response = await fetch(`/Api/api/comment/getComment/${movieId}`,{
                     credentials: "include",
                 });
                 const data = await response.json();
@@ -23,7 +23,7 @@ function useComment(movieId) {
 
     const createComment = async (comment) => {
         try {
-            const response = await fetch('/api/comment/createComment', {
+            const response = await fetch('/Api/api/comment/createComment', {
                 method: 'POST',
                 credentials: "include",
                 headers: {

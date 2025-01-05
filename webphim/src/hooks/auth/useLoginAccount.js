@@ -6,7 +6,7 @@ const useLoginAccount = () => {
 
     const loginAccount = async (infor) => {
         try {
-            const response = await fetch('/api/auth/login', {
+            const response = await fetch('/Api/api/auth/login', {
                 method: 'POST',
                 credentials: "include",
                 headers: {

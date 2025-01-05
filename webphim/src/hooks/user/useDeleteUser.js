@@ -4,7 +4,7 @@ const useDeleteUser = () => {
     const { setUser } = useContext(UserContext);
     const deleteUser = async (userId) => {
         try {
-            const response = await fetch(`/api/user/delete/${userId}`, {
+            const response = await fetch(`/Api/api/user/delete/${userId}`, {
                 method: 'DELETE',
                 credentials: "include",
             });

@@ -11,19 +11,6 @@ app.use(cors({
   credentials: true,
 }));
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self' blob: http://35.198.228.50:8089; " +
-    "script-src 'self' https://unpkg.com; " + 
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
-    "img-src 'self' data: http://35.198.228.50:8089; " +
-    "media-src 'self' data: http://35.198.228.50:8089; " +
-    "worker-src 'self' blob: *;" +
-    "font-src 'self' data: https://fonts.gstatic.com;"
-  );
-  next();
-});
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.join(__dirname, "static")));

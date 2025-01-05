@@ -32,7 +32,7 @@ function EditFilmPage() {
 
     useEffect(() => {
         const getGenreList = async () => {
-            const response = await fetch('/api/genres/',{
+            const response = await fetch('/Api/api/genres/',{
                 credentials: "include",
             });
             const data = await response.json();
@@ -44,7 +44,7 @@ function EditFilmPage() {
         };
 
         const getFilm = async () => {
-            const response = await fetch(`/api/films/get/${id}`,{
+            const response = await fetch(`/Api/api/films/get/${id}`,{
                 credentials: "include",
             });
             const data = await response.json();

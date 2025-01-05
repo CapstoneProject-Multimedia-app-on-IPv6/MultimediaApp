@@ -44,7 +44,7 @@ function Profile() {
     useEffect(() => {
         const fetchUserDetail = async () => {
             try {
-                const response = await fetch(`/api/user/user-by-id/${id}`,{
+                const response = await fetch(`/Api/api/user/user-by-id/${id}`,{
                     method: 'GET',
                     credentials: 'include',
                     headers: {
