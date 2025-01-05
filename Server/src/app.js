@@ -33,7 +33,7 @@ app.use(cors({
 }));
 
 app.use(cookieParser());
-
+app.post("/uploads", upload.single("file"), uploadController);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 app.use(
   express.static(path.resolve(__dirname, "../build"), {
@@ -42,7 +42,7 @@ app.use(
     },
   })
 );
-
+app.use(express.static(path.resolve(__dirname, "../static")));
 console.log("thu muc hien tai: ", __dirname);
 
 app.use("/api", router);
