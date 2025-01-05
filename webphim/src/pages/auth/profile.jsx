@@ -53,10 +53,10 @@ function Profile() {
                 });
                 const dataUser = await response.json();
                 if (dataUser.success) {
-                    setUser(dataUser.datas);
+                    setUser(dataUser.data);
                     setUserInfor({
-                        name: dataUser.datas.name,
-                        avatar: dataUser.datas.avatar,
+                        name: dataUser.data.name,
+                        avatar: dataUser.data.avatar,
                     });
                 } else {
                     console.log(dataUser?.message);
@@ -81,7 +81,7 @@ function Profile() {
                 <div className="content-wrapper">
                     <div className="wrapper">
                         <form className="formUser" onSubmit={handleSubmit}>
-                            <h4 className="headerr">Thông Tin Cá Nhân</h4>
+                            <h4 className="header">Thông Tin Cá Nhân</h4>
                             <div className="container">
                                 <div className="info">
                                     <h4 className="title">Thông tin người dùng</h4>
