@@ -13,7 +13,6 @@ const protectRoute = async (req, res, next) => {
         .json({ error: "Unauthorized - No token provider !" });
     }
 
-    //decrypt token (token need to decode, secret key sign when create token)
     const decoded = jwt.verify(token, "eMr8rlzs");
 
     if (!decoded) {
@@ -22,14 +21,12 @@ const protectRoute = async (req, res, next) => {
         .json({ error: "Unauthorized - No token provider !" });
     }
 
-    //find user by id and remove password from result
     const user = await User.findById(decoded.userId).select("-password");
 
-    // if (!user) {
-    //   return res.status(404).json({ error: "User not found !" });
-    // }
+    if (!user) {
+      return res.status(404).json({ error: "User not found !" });
+    }
     console.log("why user not found 404? user: " + user);
-    //set user for request
     req.user = user;
     next();
   } catch (err) {

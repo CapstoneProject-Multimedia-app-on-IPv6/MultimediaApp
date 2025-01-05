@@ -12,6 +12,7 @@ const routerAuth = express.Router();
 routerAuth.post("/register", register);
 routerAuth.post("/login", login);
 routerAuth.post("/logout", logout);
-routerAuth.post("/getAccess", decodeToken, isAdmin, allowAccess);
+// routerAuth.post("/getAccess", decodeToken, isAdmin, allowAccess);
+routerAuth.post("/getAccess", decodeToken, allowAccess);
 
 export default routerAuth;

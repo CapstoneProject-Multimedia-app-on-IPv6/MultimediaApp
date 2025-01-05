@@ -89,7 +89,7 @@ export const logout = (req, res) => {
 
 export const allowAccess = async (req, res) => {
   try {
-    if (req.user) {
+    if () {
       return res.status(200).json({ message: "chap nhan truy cap" });
     }
 
