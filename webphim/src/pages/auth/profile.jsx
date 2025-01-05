@@ -9,7 +9,8 @@ import ConfirmDialog from '../film/confirmDialog';
 import useLogout from '~/hooks/auth/useLogoutAcount';
 
 function Profile() {
-    const { id } = useParams();
+    // const { id } = useParams();
+    const { id } = "676ad59658f32858dfdae5bb";
     const [user, setUser] = useState({});
     const { logout } = useLogout();
     const [showConfirmDialog, setShowConfirmDialog] = useState(false);

@@ -7,7 +7,8 @@ import { UserContext } from '~/context/authContext.jsx';
 
 
 function UserDrop() {
-    const{id}= useParams();
+    // const{id}= useParams();
+    const { id } = "676ad59658f32858dfdae5bb";
     const { logout } = useLogout();
     const { user } = useContext(UserContext);
     const [userSave, setUserSave] = useState({});
