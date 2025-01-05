@@ -48,6 +48,7 @@ export const getUserDetail = async (req, res) => {
 export const updateUser = async (req, res) => {
   try {
     const userId = req.user._id;
+    console.log("userId ? : " + userId);
     let userData = req.body.user ? JSON.parse(req.body.user) : {};
 
     if (req.file) {
