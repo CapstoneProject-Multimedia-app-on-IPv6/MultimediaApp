@@ -5,7 +5,7 @@ const uploadFile = (req, res) => {
       console.log("is it working?");
       const filePath =
         "http://35.240.234.86:8090" +
-        req.file.path.substring(req.file.path.indexOf("/uploads"));
+        req.file.path.substring(req.file.path.indexOf("\\uploads"));
       return res.status(201).json(filePath);
     } else {
       return res.status(400).json({
