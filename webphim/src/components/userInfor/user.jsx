@@ -7,8 +7,8 @@ import { UserContext } from '~/context/authContext.jsx';
 
 
 function UserDrop() {
-    // const{id}= useParams();
-    const { id } = "676ad59658f32858dfdae5bb";
+    const{id}= useParams();
+    // const { id } = "676ad59658f32858dfdae5bb";
     const { logout } = useLogout();
     const { user } = useContext(UserContext);
     const [userSave, setUserSave] = useState({});
@@ -21,7 +21,7 @@ function UserDrop() {
     useEffect(() => {
         const fetchUserDetail = async () => {
             try {
-                const response = await fetch(`/api/user/user-by-id/676ad59658f32858dfdae5bb`,{
+                const response = await fetch(`/api/user/user-by-id/${id}`,{
                     method: 'GET',
                     credentials: 'include',
                 });

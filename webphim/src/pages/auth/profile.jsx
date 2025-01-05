@@ -9,8 +9,8 @@ import ConfirmDialog from '../film/confirmDialog';
 import useLogout from '~/hooks/auth/useLogoutAcount';
 
 function Profile() {
-    // const { id } = useParams();
-    const { id } = "676ad59658f32858dfdae5bb";
+    const { id } = useParams();
+    // const { id } = "676ad59658f32858dfdae5bb";
     const [user, setUser] = useState({});
     const { logout } = useLogout();
     const [showConfirmDialog, setShowConfirmDialog] = useState(false);
@@ -44,7 +44,7 @@ function Profile() {
     useEffect(() => {
         const fetchUserDetail = async () => {
             try {
-                const response = await fetch(`/api/user/user-by-id/676ad59658f32858dfdae5bb`,{
+                const response = await fetch(`/api/user/user-by-id/${id}`,{
                     method: 'GET',
                     credentials: 'include',
                     headers: {
@@ -53,10 +53,10 @@ function Profile() {
                 });
                 const dataUser = await response.json();
                 if (dataUser.success) {
-                    setUser(dataUser.data);
+                    setUser(dataUser.datas);
                     setUserInfor({
-                        name: dataUser.data.name,
-                        avatar: dataUser.data.avatar,
+                        name: dataUser.datas.name,
+                        avatar: dataUser.datas.avatar,
                     });
                 } else {
                     console.log(dataUser?.message);
