@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../static/upload")); // Chỉ đường dẫn tới thư mục uploads
+    cb(null, path.join(__dirname, "../static/upload")); // Chỉ đường dẫn tới thư mục upload
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
