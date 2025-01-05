@@ -18,7 +18,7 @@ app.use((req, res, next) => {
     "script-src 'self' https://unpkg.com; " + 
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
     "img-src 'self' data: http://35.240.234.86:8090 http://35.198.228.50:8089/; " +
-    "media-src 'self' data: http://35.240.234.86:8090 http://35.198.228.50:8089/; " +
+    "media-src 'self' blob: * data: http://35.240.234.86:8090 http://35.198.228.50:8089/; " +
     "worker-src 'self' blob: *;" +
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
