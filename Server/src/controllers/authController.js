@@ -62,7 +62,7 @@ export const login = async (req, res) => {
 
     console.log("Generating token and setting cookie...");
     const token = generateTokenAndSetCookie(checkEmail._id, res);
-    checkEmail.password = undefinedd;
+    checkEmail.password = undefined;
 
     return res.status(200).json({
       message: "Đăng nhập thành công",
