@@ -1,0 +1,7 @@
+dashboardsProvider:
+  enabled: true
+
+dashboardsConfigMaps:
+  - name: grafana-dashboard-k8s
+    namespace: monitoring
+

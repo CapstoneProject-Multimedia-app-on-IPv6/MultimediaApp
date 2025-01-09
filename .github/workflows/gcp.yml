@@ -13,6 +13,8 @@ env:
   IMAGE_TAG: test # image tag
   GAR_ZONE: asia-southeast1 # artifact registry zone
   GAR_REPO: docker-registry # artifact registry repository
+  PROMETHEUS_NAMESPACE: monitoring
+  GRAFANA_NAMESPACE: monitoring
 
 jobs:
   setup-build-publish-deploy:
@@ -23,10 +25,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
-
     # Setup gcloud CLI
     - id: 'auth'
-      uses: 'google-github-actions/auth@v0'
+      uses: 'google-github-actions/auth@v2.1.7'
       with:
         credentials_json: '${{ secrets.GKE_SA_KEY }}'
 
@@ -38,10 +39,37 @@ jobs:
 
     # Get the GKE credentials so we can deploy to the cluster
     - name: Set up GKE credentials
-      uses: google-github-actions/get-gke-credentials@v0
+      uses: google-github-actions/get-gke-credentials@v2.3.0
       with:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
+
+    # Install Helm Charts
+    - name: Install Helm
+      run: |-
+        curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+      
+    # Deploy Prometheus
+    - name: Deploy Prometheus
+      run: |-
+        helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+        helm repo update
+        helm upgrade --install prometheus prometheus-community/prometheus \
+          --namespace ${{ env.PROMETHEUS_NAMESPACE }} \
+          --create-namespace
+
+    # Deploy Grafana
+    - name: Deploy Grafana
+      run: |-
+        helm repo add grafana https://grafana.github.io/helm-charts
+        helm repo update
+        helm upgrade --install grafana grafana/grafana \
+          --namespace ${{ env.GRAFANA_NAMESPACE }} \
+          --set adminPassword=${{ secrets.GRAFANA_ADMIN_PASSWORD }} \
+          --set service.type=LoadBalancer \
+          --set sidecar.dashboards.enabled=true \
+          --set sidecar.dashboards.label=grafana_dashboard \
+          --create-namespace
 
     # Build the Docker image
     - name: Build
@@ -51,6 +79,17 @@ jobs:
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
           .
+    # Scan Docker image with Trivy
+    - name: Trivy
+      run: |-
+        curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh
+        ./bin/trivy image --severity CRITICAL,HIGH --format json --output trivy-report.json $GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE:$IMAGE_TAG
+    #Upload Trivy Scan Report
+    - name: Trivy Report
+      uses: actions/upload-artifact@v3
+      with:
+        name: trivy-scan-report
+        path: trivy-report.json
     # Push the Docker image to Google Container Registry
     - name: Publish
       run: |-
@@ -59,6 +98,29 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        kubectl apply -f deployment.yml
-        kubectl apply -f service.yml
+        kubectl apply -f deployment.yaml -f service.yaml
         kubectl get pods
+    
+    # Configure Grafana Dashboard
+    - name: Configure Grafana Dashboard
+      run: |-
+        echo "Applying Grafana dashboard..."
+        kubectl apply -f Helm/grafana-dashboard.yaml -n monitoring
+
+    # Configure Nginx for Grafana
+    - name: Configure Nginx for Grafana
+      run: |-
+        echo "Applying Nginx configuration for Grafana..."
+        kubectl apply -f Helm/nginx-grafana.yaml
+    
+    # Get External IP
+    - name: Get External IP
+      id: get-ip
+      run: |-
+        IP=$(kubectl get svc grafana -n ${{ env.GRAFANA_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+        echo "External IP: $IP"
+        echo "::set-output name=external_ip::$IP"
+    
+    # Display External IP
+    - name: Display External IP
+      run: echo "Grafana External IP ${{ steps.get-ip.outputs.external_ip }}"
