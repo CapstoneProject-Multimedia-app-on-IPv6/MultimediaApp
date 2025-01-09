@@ -8,6 +8,6 @@ spec:
   type: LoadBalancer #Type of the Kubernetes Service
   ports:
   - protocol: TCP
-    port: 3009 #Service port
-    targetPort: 3009 #The port for the React.js application container
-    nodePort: 30008
+    port: 8089 #Service port
+    targetPort: 8089 #The port for the React.js application container
+    nodePort: 30001
