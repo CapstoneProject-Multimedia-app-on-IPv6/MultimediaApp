@@ -63,8 +63,6 @@ app.listen(8089, () => {
 
 
 
-
-
 //   res.setHeader(
 //     "Content-Security-Policy-Report-Only",
 //     "default-src 'self' blob: http://35.240.234.86:8090; img-src 'self' data: http://35.240.234.86:8090;"
