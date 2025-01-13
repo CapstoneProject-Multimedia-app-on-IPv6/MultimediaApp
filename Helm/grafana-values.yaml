@@ -12,10 +12,4 @@ dashboardsConfigMaps:
   - name: grafana-dashboard-k8s
     namespace: monitoring
 
-ingress:
-  enabled: true
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-  hosts: []
-  tls: []
 
