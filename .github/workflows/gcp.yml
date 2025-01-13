@@ -117,9 +117,9 @@ jobs:
     - name: Get External IP
       id: get-ip
       run: |-
-        IP=$(kubectl get ingress grafana-ingress -n ${{ env.GRAFANA_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+        IP=$(kubectl get svc grafana -n ${{ env.GRAFANA_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}' || echo "Pending")
         echo "External IP: $IP"
-        echo "::set-output name=external_ip::$IP"
+        echo "EXTERNAL_IP=$IP" >> $GITHUB_ENV
 
     # Display External IP
     - name: Display External IP
