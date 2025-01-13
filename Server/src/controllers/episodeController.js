@@ -1,6 +1,8 @@
 import Episode from "../models/episode.js";
 import episodeSchema from "../validations/episodeValid.js";
 import fs from "fs";
+import dotenv from 'dotenv';
+dotenv.config();
 export const getAllEpisodes = async (req, res) => {
   const { movieId } = req.params; // Lấy movieId từ params
 
@@ -41,7 +43,7 @@ export const createEpisodeForMovie = async (req, res) => {
       const formData = new FormData();
       formData.append("file", blob, req.file.filename);
 
-      const response = await fetch("http://35.198.228.50:8089/uploads", {
+      const response = await fetch(`http://${process.env.server-upload-url}/uploads`, {
         method: "POST",
         credentials: "include",
         body: formData,

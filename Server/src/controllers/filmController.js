@@ -5,7 +5,8 @@ import User from "../models/users.js";
 import History from "../models/history.js";
 import Genre from "../models/genres.js";
 import { error } from "console";
-
+import dotenv from 'dotenv';
+dotenv.config();
 export const get = async (req, res) => {
   try {
     const film = await Film.find();
@@ -108,7 +109,7 @@ export const create = async (req, res) => {
     const formData = new FormData();
     formData.append("file", blob, req.file.filename);
 
-    const response = await fetch("http://35.198.228.50:8089/uploads", {
+    const response = await fetch(`http://${process.env.server-upload-url}/uploads`, {
       method: "POST",
       credentials: "include",
       body: formData,
@@ -158,7 +159,7 @@ export const update = async (req, res) => {
       formData.append("file", blob, req.file.filename);
 
       // Tải tệp mới lên
-      const response = await fetch("http://35.198.228.50:8089/uploads", {
+      const response = await fetch(`http://${process.env.server-upload-url}/uploads`, {
         method: "POST",
         credentials: "include",
         body: formData,

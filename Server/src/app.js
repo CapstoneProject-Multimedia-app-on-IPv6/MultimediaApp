@@ -5,8 +5,11 @@ import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
 import cookieParser from "cookie-parser";
+import dotenv from 'dotenv';
+dotenv.config();
 import upload from "./configs/multerConfig.js";
 import uploadController from "./controllers/UploadController.js"
+
 const app = express();
 
 app.use(express.json());
@@ -14,11 +17,11 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self' blob: http://34.126.164.240:8089; " +
+    `default-src 'self' blob: http://${process.env.server-upload-url}; ` +
     "script-src 'self' https://unpkg.com; " + 
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
-    "img-src 'self' data: http://34.126.164.240:8089; " +
-    "media-src 'self' blob: * data: http://34.126.164.240:8089; " +
+    `img-src 'self' data: http://${process.env.server-upload-url}; ` +
+    `media-src 'self' blob: * data: http://${process.env.server-upload-url}; ` +
     "worker-src 'self' blob: *;" +
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
@@ -49,7 +52,7 @@ app.use("/api", router);
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build/index.html"));
 });
-mongoose.connect("mongodb+srv://giahuy:user123@cluster0.fno0x.mongodb.net/phim")
+mongoose.connect(`${process.env.mongodb-uri}`)
         .then(() => {
           console.log("Connect to db success");
               })
