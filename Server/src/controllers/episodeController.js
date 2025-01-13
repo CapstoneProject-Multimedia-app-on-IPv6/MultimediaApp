@@ -43,7 +43,7 @@ export const createEpisodeForMovie = async (req, res) => {
       const formData = new FormData();
       formData.append("file", blob, req.file.filename);
 
-      const response = await fetch(`http://${process.env.server-upload-url}/uploads`, {
+      const response = await fetch(`http://${process.env.server_upload_url}/uploads`, {
         method: "POST",
         credentials: "include",
         body: formData,
