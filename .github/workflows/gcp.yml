@@ -120,7 +120,3 @@ jobs:
         IP=$(kubectl get svc grafana -n ${{ env.GRAFANA_NAMESPACE }} -o jsonpath='{.status.loadBalancer.ingress[0].ip}' || echo "Pending")
         echo "External IP: $IP"
         echo "EXTERNAL_IP=$IP" >> $GITHUB_ENV
-
-    # Display External IP
-    - name: Display External IP
-      run: echo "Grafana External IP ${{ steps.get-ip.outputs.external_ip }}"
