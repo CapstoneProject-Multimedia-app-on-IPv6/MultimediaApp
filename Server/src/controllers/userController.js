@@ -2,7 +2,8 @@ import User from "../models/users.js";
 import Comment from "../models/comment.js";
 import bcrypt from "bcryptjs";
 import fs from "fs";
-
+import dotenv from 'dotenv';
+dotenv.config();
 export const getAllUsers = async (req, res) => {
   try {
     const users = await User.find({}).select("-password");
@@ -57,7 +58,7 @@ export const updateUser = async (req, res) => {
       const formData = new FormData();
       formData.append("file", blob, req.file.filename);
 
-      const response = await fetch("http://35.198.228.50:8089/uploads", {
+      const response = await fetch(`http://${process.env.server-upload-url}/uploads`, {
         method: "POST",
         credentials: "include",
         body: formData,

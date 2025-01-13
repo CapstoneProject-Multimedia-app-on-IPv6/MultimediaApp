@@ -1,10 +1,13 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const uploadFile = (req, res) => {
   const file = req.file;
   try {
     if (file) {
       console.log("is it working?");
       const filePath =
-        "http://34.126.164.240:8089" +
+        `http://${process.env.server-upload-url}` +
         req.file.path.substring(req.file.path.indexOf("/uploads"));
       return res.status(201).json(filePath);
     } else {
