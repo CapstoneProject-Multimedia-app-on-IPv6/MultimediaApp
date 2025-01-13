@@ -17,11 +17,11 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    `default-src 'self' blob: http://${process.env.server-upload-url}; ` +
+    `default-src 'self' blob: http://${process.env.server_upload_url}; ` +
     "script-src 'self' https://unpkg.com; " + 
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
-    `img-src 'self' data: http://${process.env.server-upload-url}; ` +
-    `media-src 'self' blob: * data: http://${process.env.server-upload-url}; ` +
+    `img-src 'self' data: http://${process.env.server_upload_url}; ` +
+    `media-src 'self' blob: * data: http://${process.env.server_upload_url}; ` +
     "worker-src 'self' blob: *;" +
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
@@ -52,7 +52,7 @@ app.use("/api", router);
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../build/index.html"));
 });
-mongoose.connect(`${process.env.mongodb-uri}`)
+mongoose.connect(`${process.env.mongodb_uri}`)
         .then(() => {
           console.log("Connect to db success");
               })

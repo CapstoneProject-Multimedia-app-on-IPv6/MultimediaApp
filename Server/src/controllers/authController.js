@@ -26,7 +26,7 @@ export const register = async (req, res) => {
 
     const user = await User.create({
       ...req.body,
-      avatar: `http://${process.env.server-upload-url}/uploads/avatar/avatar.png`,
+      avatar: `http://${process.env.server_upload_url}/uploads/avatar/avatar.png`,
       password: hashNewPassword,
     });
     user.password = undefined;
