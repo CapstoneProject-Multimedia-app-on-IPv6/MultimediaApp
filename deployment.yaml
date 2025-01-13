@@ -17,5 +17,6 @@ spec:
       containers:
       - name: react-app #The name of the react.js application container
         image: asia-southeast1-docker.pkg.dev/lexical-aquifer-445708-u1/docker-registry/micro:latest #The Docker image for building the React.js application container
+        imagePullPolicy: Always
         ports:
         - containerPort: 8089 #The port for the React.js application container
