@@ -66,8 +66,14 @@ jobs:
         helm repo update
         helm upgrade --install grafana grafana/grafana \
           --namespace ${{ env.GRAFANA_NAMESPACE }} \
-          --values Helm/grafana-values.yaml \
+          --set adminPassword=${{ secrets.GRAFANA_ADMIN_PASSWORD }} \
+          --set service.type=ClusterIP \  # GKE Autopilot yêu cầu tránh sử dụng LoadBalancer
+          --set securityContext.runAsNonRoot=true \
+          --set securityContext.fsGroup=2000 \
+          --set sidecar.dashboards.enabled=true \
+          --set sidecar.dashboards.label=grafana_dashboard \
           --create-namespace
+          
           
     # Apply Grafana Dashboard
     - name: Configure Grafana Dashboard
