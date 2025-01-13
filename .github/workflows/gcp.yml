@@ -60,19 +60,17 @@ jobs:
           -f Helm/prometheus-values.yaml
 
     # Deploy Grafana
-    #- name: Deploy Grafana
-    #  run: |
-    #    helm repo add grafana https://grafana.github.io/helm-charts
-    #    helm repo update
-    #    helm upgrade --install grafana grafana/grafana \
-    #      --namespace ${{ env.GRAFANA_NAMESPACE }} \
-    #      --set adminPassword=${{ secrets.GRAFANA_ADMIN_PASSWORD }} \
-     #     --set service.type=ClusterIP \  # GKE Autopilot yêu cầu tránh sử dụng LoadBalancer
-      #    --set securityContext.runAsNonRoot=true \
-       #   --set securityContext.fsGroup=2000 \
-        #  --set sidecar.dashboards.enabled=true \
-         # --set sidecar.dashboards.label=grafana_dashboard \
-          #--create-namespace
+    - name: Deploy Grafana
+      run: |-
+        helm repo add grafana https://grafana.github.io/helm-charts
+        helm repo update
+        helm upgrade --install grafana grafana/grafana \
+          --namespace ${{ env.GRAFANA_NAMESPACE }} \
+          --set adminPassword=${{ secrets.GRAFANA_ADMIN_PASSWORD }} \
+          --set service.type=LoadBalancer \
+          --set sidecar.dashboards.enabled=true \
+          --set sidecar.dashboards.label=grafana_dashboard \
+          --create-namespace
           
           
     # Apply Grafana Dashboard
