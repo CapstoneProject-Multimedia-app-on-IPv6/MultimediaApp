@@ -14,11 +14,11 @@ app.use(express.json());
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self' blob: http://35.240.234.86:8090 http://35.198.228.50:8089/; " +
+    "default-src 'self' blob: http://34.126.164.240:8090; " +
     "script-src 'self' https://unpkg.com; " + 
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/; " + 
-    "img-src 'self' data: http://35.240.234.86:8090 http://35.198.228.50:8089/; " +
-    "media-src 'self' blob: * data: http://35.240.234.86:8090 http://35.198.228.50:8089/; " +
+    "img-src 'self' data: http://34.126.164.240:8090; " +
+    "media-src 'self' blob: * data: http://34.126.164.240:8090; " +
     "worker-src 'self' blob: *;" +
     "font-src 'self' data: https://fonts.gstatic.com;"
   );
