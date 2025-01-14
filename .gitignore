@@ -10,7 +10,15 @@ node_modules/
 *.mp4
 # production
 # /build
+# Exclude Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
 
+# Exclude Terraform lock file (optional)
+.terraform.lock.hcl
+
+# Exclude Terraform working directory
+.terraform/
 # misc
 
 npm-debug.log*

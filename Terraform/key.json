@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "lexical-aquifer-445708-u1",
+  "private_key_id": "a483ba5b44e98ed8177a8cc371c7c2dfd5343bb1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCawQitcZGmlQD9\nQbIsOK9P3/18uMO2XWaB3Fov8yr2hc5DarmKs2Z9bFpjieaaQouiPgG5Cx1dWn4m\nfoPKwVaeriBJVAvYZYUcQX6KDIvo8c8rJWyx17bh7umA9LNIX0Z75/Bqjjstqesa\nD829rQAOFYeA11la4U1R//u6VQr3BY4JslTvoeJskx88mCVxFVGjh1i7cVbE52aY\ndEMefNeQj8GqemBc+AGmHbEi8wp+u4PfBLJ9EuzWo2Zu4F/zd6Q4opJDm/hiBVcp\nQXYNT8bhaVKujHI7Tp80TyvmZZTPnY0dGbIK2kvJgNzMk+kOZtbbIrBns6wVs+gr\nqc0MmDN/AgMBAAECggEAKRL0DSj4ChlBTnbJ5g/ThCVE3/4gP/5xTyVfsJtfe1gP\nY3hnr6cnHEIOiZ3X3XitHA5OIcGP9S+oDOqGa2G+blZ0DlJm5HQpjNLbVaO33MeV\nf3Oq8lb5XOUvB8Gq9hoHmKp6dqWykk+nrV6lcmMBATv4n5tIxaTIA2wocY/R3bcr\nhsd0Zz92gHbkjXDFWjNwRUupb2uW9EEUY+bL68ziimEYAZ67ZXczBL7Bx66eGpEf\nH9adn5Z7D83xA1pNDMtChRkpKYgqsHuquRWxrydTbSQGw9TDSDOiI4EQVfoTdMkZ\nNkYjB4MNgzDoXJDugOo/CrS+7FnKOXPGmM0pkwqqnQKBgQDMSQ37tlSmCTwiWJCp\nbVg0wBe7js+7uOMVH4cHnJHZ+Cek2h+O5kf5P8dz/veaVNlw6mJg6KbKYhcvka8I\nw6F+WGPJrt3PYstSImgx9wXwYWKNjwJjEjcNckOEvFDEFXjw3FxwEqZLriYkoYo9\ntZh/r3hF808PDggG4VgKUZvyPQKBgQDB7guNBpZ+sqkDsy9kt7CvO9gB+M3Plwkz\nx88DWitb6iMgfXTB2H1xPT37/s7L3yj6qlDHLsS85PVXt1Aq2YATm0UdkC7XATVO\nnAoFOXDHV37mvVZ1bnh8MBGsuhdibi3LQwXPOzeVbquPjHvpS1Qi1ilMkdx8Ewpf\nKKoaYjUEawKBgAl/cAX+8SqTDVevdHJcIhi5waC3wBLDQtONlrKU5fcTYYx5k7QK\nItiEzZooBY0IWt+0FgTZbD/Glbthc5jdt5lvNJyA49Erj7Zu4RdJm94UOQfJ2VuP\n0j1uzZLTSpIDSY8xP576Tv7/xsg3Nn0t/zwYhWgDKu7RQTBIs9Yu+yglAoGAYnm9\nddRVkWqpto5Dz7ITTzhlPMMZx4MbkiaxMTOVduwTAEmUg2aqdFkz44WFfzMHvRnF\nQQ+3qW/eQbd9RvUBO3OKCjQQBO/BIPTNhc+gPClq8EJO5/y7w9wo7Xvlqf7m1CNp\njMy2MfRru84LkfDFfZcgi5g5zOtiReYBUrpxz5cCgYEAq1AhzdQpc0ZWoLzsdIGs\nt8Xm9t21xMy2M4GlB1asXIyAFVCYMG69WJJkT7j7TuIic7i9WN8fYgMZ26LZAnX8\nOezv3HsB6hJwg7s3638ATe3z1safHNvR+U+TtHlukmgYhQ9rXOEmMYrpo7jT3uR5\n963HKv+SfO8yYVUVZO5B3KI=\n-----END PRIVATE KEY-----\n",
+  "client_email": "terraform-svc@lexical-aquifer-445708-u1.iam.gserviceaccount.com",
+  "client_id": "108331073529178757711",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/terraform-svc%40lexical-aquifer-445708-u1.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
