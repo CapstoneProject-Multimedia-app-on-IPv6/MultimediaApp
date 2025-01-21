@@ -88,7 +88,7 @@ jobs:
 
     - name: Validate Kubernetes Manifests
       run: |
-        kubectl apply --dry-run=client -f frontend-deployment.yaml -n default
+        kubectl apply --dry-run=client -f frontend-deployment.yml -n default
         kubectl apply --dry-run=client -f backend-deployment.yml -n default
         kubectl apply --dry-run=client -f service.yaml -n default
 
@@ -96,5 +96,5 @@ jobs:
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
       run: |-
-        kubectl apply -f frontend-deployment.yaml -f backend-deployment.yml -f service.yaml -n default
+        kubectl apply -f frontend-deployment.yml -f backend-deployment.yml -f service.yaml -n default
         kubectl get pods
