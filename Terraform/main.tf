@@ -56,6 +56,10 @@ resource "google_container_node_pool" "public_node_pool" {
       disable-legacy-endpoints = "true"
     }
 
+    labels = {
+      role = "frontend" # Node role label
+    }
+    
     oauth_scopes = [
       "https://www.googleapis.com/auth/devstorage.read_only",
       "https://www.googleapis.com/auth/logging.write",
@@ -89,7 +93,9 @@ resource "google_container_node_pool" "private_node_pool" {
     metadata = {
       disable-legacy-endpoints = "true"
     }
-
+    labels = {
+      role = "backend" # Node role label
+    }
     oauth_scopes = [
       "https://www.googleapis.com/auth/devstorage.read_only",
       "https://www.googleapis.com/auth/logging.write",
