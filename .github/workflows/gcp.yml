@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: autopilot-cluster-1
-  GKE_ZONE: asia-southeast1
+  GKE_ZONE: asia-southeast1-a
   IMAGE_FE: fe
   IMAGE_BE: be
   IMAGE_TAG: latest
