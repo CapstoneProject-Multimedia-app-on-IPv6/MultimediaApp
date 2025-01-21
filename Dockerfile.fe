@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copy dependency files
 COPY webphim/package*.json ./
-
+RUN npm install
 COPY webphim .
 RUN npm run build
 
