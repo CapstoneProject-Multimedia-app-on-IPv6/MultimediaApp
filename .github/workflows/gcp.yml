@@ -123,6 +123,15 @@ jobs:
       working-directory: Terraform
       run: |
         terraform init
+    - name: format
+      working-directory: Terraform
+      run: |
+        terraform fmt
+        
+    - name: Validate typo and syntax
+      working-directory: Terraform
+      run: |
+        terraform validate
 
     - name: Plan Terraform Changes
       working-directory: Terraform
