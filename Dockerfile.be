@@ -7,6 +7,4 @@ COPY Server/package*.json ./
 RUN npm ci
 COPY Server .
 
-EXPOSE 8089
-
 CMD ["npm", "start"]

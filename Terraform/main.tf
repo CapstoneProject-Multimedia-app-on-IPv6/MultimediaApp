@@ -17,6 +17,9 @@ resource "google_container_cluster" "autopilot_cluster_1" {
   name               = "autopilot-cluster-1"
   location           = "asia-southeast1-a" # Change to single zone
   initial_node_count = 1 
+
+  
+  
   release_channel {
     channel = "REGULAR"
   }
@@ -24,7 +27,9 @@ resource "google_container_cluster" "autopilot_cluster_1" {
   network    = "projects/lexical-aquifer-445708-u1/global/networks/firstvpc"
   subnetwork = "projects/lexical-aquifer-445708-u1/regions/asia-southeast1/subnetworks/public-subnet"
 
-  ip_allocation_policy {}
+  ip_allocation_policy {            
+  }
+  
   datapath_provider = "ADVANCED_DATAPATH"
 
   addons_config {
@@ -59,7 +64,7 @@ resource "google_container_node_pool" "public_node_pool" {
     labels = {
       role = "frontend" # Node role label
     }
-    
+
     oauth_scopes = [
       "https://www.googleapis.com/auth/devstorage.read_only",
       "https://www.googleapis.com/auth/logging.write",
