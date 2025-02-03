@@ -6,11 +6,7 @@ spec:
   selector:
     app: react-app 
   type: LoadBalancer #Type of the Kubernetes Service4
-  ipFamilies:
-    - IPv4
-    - IPv6
   ports:
   - protocol: TCP
     port: 80
     targetPort: 80 #The port for the React.js application container
-    nodePort: 30001
