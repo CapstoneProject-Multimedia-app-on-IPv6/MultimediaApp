@@ -70,13 +70,13 @@ jobs:
         ./bin/trivy image --severity CRITICAL,HIGH --format json --output trivy-report-be.json $GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE_BE:$IMAGE_TAG
     #Upload Trivy Scan Report
     - name: Upload Frontend Trivy Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.6.0
       with:
         name: trivy-scan-report-frontend
         path: trivy-report-fe.json
 
     - name: Upload Backend Trivy Report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4.6.0
       with:
         name: trivy-scan-report-backend
         path: trivy-report-be.json
