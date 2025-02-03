@@ -18,7 +18,7 @@ resource "google_container_cluster" "autopilot_cluster_1" {
   location           = "asia-southeast1-a" # Change to single zone
   initial_node_count = 1 
 
-  
+  deletion_protection = false
   
   release_channel {
     channel = "REGULAR"
@@ -27,7 +27,8 @@ resource "google_container_cluster" "autopilot_cluster_1" {
   network    = "projects/lexical-aquifer-445708-u1/global/networks/firstvpc"
   subnetwork = "projects/lexical-aquifer-445708-u1/regions/asia-southeast1/subnetworks/public-subnet"
 
-  ip_allocation_policy {            
+  ip_allocation_policy {   
+    stack_type      = "IPV4_IPV6"     
   }
   
   datapath_provider = "ADVANCED_DATAPATH"
