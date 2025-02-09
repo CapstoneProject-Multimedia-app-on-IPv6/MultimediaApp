@@ -3,7 +3,7 @@ name: Build and Deploy to GKE
 on:
   push:
     branches:
-      - test2
+      - main
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
@@ -51,6 +51,11 @@ jobs:
       working-directory: Terraform
       run: |
         terraform validate
+        
+    - name: Refresh Terraform State  # 🔹 New step to sync with cloud resources
+      working-directory: Terraform
+      run: |
+        terraform refresh
 
     - name: Plan Terraform Changes
       working-directory: Terraform
