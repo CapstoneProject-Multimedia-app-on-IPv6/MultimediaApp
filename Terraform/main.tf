@@ -10,7 +10,7 @@ terraform {
 provider "google" {
   project     = "lexical-aquifer-445708-u1"
   region      = "asia-southeast1"
-  credentials = var.key
+  credentials = var.KEY
 }
 
 resource "google_container_cluster" "autopilot_cluster_1" {

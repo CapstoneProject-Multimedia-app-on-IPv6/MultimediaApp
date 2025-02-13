@@ -1,4 +1,4 @@
-variable "key" {
+variable "KEY" {
   type    = string
   sensitive = true
 }
