@@ -64,6 +64,8 @@ jobs:
 
     - name: Apply Terraform Changes
       working-directory: Terraform
+      env:
+        key: '${{secrets.KEY}}'
       run: |
         terraform apply -auto-approve tfplan
 
@@ -104,6 +106,7 @@ jobs:
           --tag "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE_FE:$IMAGE_TAG" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
+          --build-arg PORT=${{ secrets.PORT }} \
           -f Dockerfile.fe .
           
     # Build the Docker image be
@@ -113,6 +116,8 @@ jobs:
           --tag "$GAR_ZONE-docker.pkg.dev/$PROJECT_ID/$GAR_REPO/$IMAGE_BE:$IMAGE_TAG" \
           --build-arg GITHUB_SHA="$GITHUB_SHA" \
           --build-arg GITHUB_REF="$GITHUB_REF" \
+          --build-arg SERVER_UPLOAD_URL=${{ secrets.SERVER_UPLOAD_URL }} \
+          --build-arg MONGODB_URI=${{ secrets.MONGODB_URI }} \
           -f Dockerfile.be .
     # Scan Docker image with Trivy
     - name: Trivy
