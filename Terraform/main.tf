@@ -108,6 +108,9 @@ resource "google_container_cluster" "autopilot_cluster_1" {
     preemptible = false
     resource_labels = {}
     resource_manager_tags = {}
+
+
+    
     service_account = "default"
     spot = false
     storage_pools = []
