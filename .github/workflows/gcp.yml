@@ -54,11 +54,15 @@ jobs:
         
     - name: Refresh Terraform State  # 🔹 New step to sync with cloud resources
       working-directory: Terraform
+      env:
+        key: '${{secrets.KEY}}'
       run: |
         terraform refresh
 
     - name: Plan Terraform Changes
       working-directory: Terraform
+      env:
+        key: '${{secrets.KEY}}'
       run: |
         terraform plan -out=tfplan
 
