@@ -12,7 +12,7 @@ node_modules/
 # /build
 # Exclude Terraform state files
 terraform.tfstate
-terraform/key.json
+key.json
 terraform.tfstate.backup
 
 
