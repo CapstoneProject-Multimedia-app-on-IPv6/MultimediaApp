@@ -10,7 +10,7 @@ terraform {
 provider "google" {
   project     = "lexical-aquifer-445708-u1"
   region      = "asia-southeast1"
-  credentials = "key.json"
+  credentials = "${{ secrets.key }}"
 }
 
 resource "google_container_cluster" "autopilot_cluster_1" {
@@ -110,7 +110,7 @@ resource "google_container_cluster" "autopilot_cluster_1" {
     resource_manager_tags = {}
 
 
-    
+
     service_account = "default"
     spot = false
     storage_pools = []

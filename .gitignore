@@ -14,7 +14,7 @@ node_modules/
 terraform.tfstate
 key.json
 terraform.tfstate.backup
-
+.env
 
 # Exclude Terraform lock file (optional)
 .terraform.lock.hcl
