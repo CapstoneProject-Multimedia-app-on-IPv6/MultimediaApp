@@ -54,24 +54,18 @@ jobs:
         
     - name: Refresh Terraform State  # 🔹 New step to sync with cloud resources
       working-directory: Terraform
-      env:
-        KEY: '${{secrets.KEY}}'
       run: |
-        terraform refresh
+        terraform refresh -var="KEY=${{ secrets.KEY }}"
 
     - name: Plan Terraform Changes
       working-directory: Terraform
-      env:
-        KEY: '${{secrets.KEY}}'
       run: |
         terraform plan -out=tfplan
 
     - name: Apply Terraform Changes
       working-directory: Terraform
-      env:
-        KEY: '${{secrets.KEY}}'
       run: |
-        terraform apply -auto-approve tfplan
+        terraform apply -auto-approve tfplan -var="KEY=${{ secrets.KEY }}"
 
   
   
