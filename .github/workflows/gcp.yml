@@ -52,11 +52,6 @@ jobs:
       run: |
         terraform validate
         
-    - name: Refresh Terraform State  # 🔹 New step to sync with cloud resources
-      working-directory: Terraform
-      run: |
-        terraform refresh -var="KEY=${{ secrets.KEY }}"
-
     - name: Plan Terraform Changes
       working-directory: Terraform
       run: |
