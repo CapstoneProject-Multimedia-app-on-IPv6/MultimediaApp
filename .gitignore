@@ -5,6 +5,7 @@ node_modules/
 /.pnp
 .pnp.js
 *.tfvars
+*tfstate*
 # testing
 /coverage
 *.mp4

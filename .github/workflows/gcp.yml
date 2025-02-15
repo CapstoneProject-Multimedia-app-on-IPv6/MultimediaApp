@@ -3,7 +3,7 @@ name: Build and Deploy to GKE
 on:
   push:
     branches:
-      - main
+      - unknown
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
@@ -31,6 +31,11 @@ jobs:
       uses: google-github-actions/auth@v2
       with:
         credentials_json: '${{ secrets.GKE_SA_KEY }}'
+    - name: Create "key.json" file
+      working-directory: Terraform
+      run: |
+          echo '${{ secrets.KEY }}' > key.json
+    
     - name: Install Terraform
       run: |
           sudo apt-get update && sudo apt-get install -y wget unzip
@@ -60,8 +65,11 @@ jobs:
     - name: Apply Terraform Changes
       working-directory: Terraform
       run: |
-        terraform apply -auto-approve tfplan -var="KEY=${{ secrets.KEY }}"
+        terraform apply -auto-approve tfplan
 
+    - name: Delete key.json file
+      working-directory: Terraform
+      run: rm -f key.json
   
   
   setup-build-publish-deploy:
