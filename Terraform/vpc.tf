@@ -9,7 +9,7 @@ resource "google_compute_network" "firstvpc" {
   routing_mode = "REGIONAL"
 }
 
-resource "google_compute_subnetwork" "private_subnet2" {
+resource "google_compute_subnetwork" "private-subnet2" {
   name                     = "private-subnet2"
   network                  = google_compute_network.firstvpc.self_link
   region                   = "asia-southeast1"
@@ -19,7 +19,7 @@ resource "google_compute_subnetwork" "private_subnet2" {
   private_ip_google_access = false
 }
 
-resource "google_compute_subnetwork" "public_subnet_uscentral" {
+resource "google_compute_subnetwork" "public-subnet-uscentral" {
   name                     = "public-subnet-uscentral"
   network                  = google_compute_network.firstvpc.self_link
   region                   = "us-central1"
@@ -29,7 +29,7 @@ resource "google_compute_subnetwork" "public_subnet_uscentral" {
   private_ip_google_access = false
 }
 
-resource "google_compute_subnetwork" "public_subnet" {
+resource "google_compute_subnetwork" "public-subnet" {
   name                     = "public-subnet"
   network                  = google_compute_network.firstvpc.self_link
   region                   = "asia-southeast1"
