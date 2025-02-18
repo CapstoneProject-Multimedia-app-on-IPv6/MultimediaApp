@@ -47,6 +47,18 @@ jobs:
       working-directory: Terraform
       run: |
         terraform init
+    - name: Import existing infrastructure if there is any
+      working-directory: Terraform
+      run: |
+        terraform import google_compute_network.firstvpc projects/lexical-aquifer-445708-u1/global/networks/firstvpc
+        terraform import google_compute_subnetwork.public-subnet projects/lexical-aquifer-445708-u1/regions/asia-southeast1/subnetworks/public-subnet
+        terraform import google_compute_subnetwork.private-subnet2 projects/lexical-aquifer-445708-u1/regions/asia-southeast1/subnetworks/private-subnet2
+
+        terraform import google_container_cluster.autopilot-cluster-1 projects/lexical-aquifer-445708-u1/locations/asia-southeast1-a/clusters/autopilot-cluster-1
+        terraform import google_container_node_pool.be_node_pool projects/lexical-aquifer-445708-u1/locations/asia-southeast1-a/clusters/autopilot-cluster-1/nodePools/be_node_pool
+        terraform import google_container_node_pool.fe_node_pool projects/lexical-aquifer-445708-u1/locations/asia-southeast1-a/clusters/autopilot-cluster-1/nodePools/fe_node_pool
+
+
     - name: format
       working-directory: Terraform
       run: |
