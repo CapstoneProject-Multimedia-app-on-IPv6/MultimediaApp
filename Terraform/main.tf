@@ -173,11 +173,11 @@ resource "google_container_cluster" "autopilot-cluster-1" {
 # =============================
 # 🚀 Public Node Pool (FE Nodes)
 # =============================
-resource "google_container_node_pool" "fe_node_pool" {
+resource "google_container_node_pool" "fe-node-pool" {
   name     = "fe-node-pool"
   cluster  = google_container_cluster.autopilot-cluster-1.name
   location = "asia-southeast1-a"
-  
+
   initial_node_count = 1
   max_pods_per_node  = 110
 
@@ -226,7 +226,7 @@ resource "google_container_node_pool" "fe_node_pool" {
 # =============================
 # 🔒 Private Node Pool (BE Nodes)
 # =============================
-resource "google_container_node_pool" "be_node_pool" {
+resource "google_container_node_pool" "be-node-pool" {
   name     = "be-node-pool"
   cluster  = google_container_cluster.autopilot-cluster-1.name
   location = "asia-southeast1-a"
